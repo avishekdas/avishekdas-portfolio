@@ -44,11 +44,17 @@ export default function Home() {
           <div className="border-b-2 border-black pb-2 mb-6">
             <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent">About</p>
           </div>
-          <p className="text-base text-black leading-relaxed">
+          <p className="text-base text-black font-semibold leading-relaxed mb-4">
             I build the architecture that moves AI from proof-of-concept to production.
-            21 years, 90-person teams, regulated banking. Currently at Cognizant driving
-            AI-native operations for a North American digital bank on AWS — shipping RAG
-            pipelines, LLM agents, and RPA automation at scale.
+          </p>
+          <p className="text-base text-black leading-relaxed mb-4">
+            Twenty-one years across open-source cloud platforms, government consulting, startups, and regulated banking. The through-line has never changed: turning complex technical problems into systems that run reliably in the real world.
+          </p>
+          <p className="text-base text-black leading-relaxed mb-4">
+            The range matters. At CA Technologies I led cloud-agnostic platform migrations at the architecture level. At Deloitte I delivered an e-governance platform for the Government of Sri Lanka — AWS-hosted, 1.7 million beneficiaries. At IBM I drove microservices and cloud migration for three years, recognised as Best Techie of the Year each time. In between, I co-founded an EdTech startup and took it from zero to production in eight months with 50 engineers.
+          </p>
+          <p className="text-base text-black leading-relaxed">
+            Today I lead AI transformation at Cognizant — shipping RAG pipelines, LLM agents, custom MCP servers, and RPA automation to production for a North American digital bank. 90-person team. 130K daily authentication events. The mission is always the same: get the architecture right before it costs everything.
           </p>
         </section>
 
@@ -65,11 +71,11 @@ export default function Home() {
               },
               {
                 title: "Architecture Leadership",
-                desc: "Cloud-native, serverless systems on AWS. Microservices, event-driven design, and DDD in regulated environments.",
+                desc: "AWS-native systems built for regulated environments. Event-driven microservices, DDD, and the hard decisions nobody documents.",
               },
               {
                 title: "Engineering at Scale",
-                desc: "Cross-functional teams of 90+. Hiring, mentoring, and building the culture that ships.",
+                desc: "Ninety-person teams. The kind of leadership that sets technical direction, raises the bar on hiring, and ships without heroics.",
               },
             ].map((card, i) => (
               <div
@@ -95,17 +101,17 @@ export default function Home() {
               {
                 title: "Conversational Banking Agent",
                 tags: ["Amazon Lex", "Bedrock (Claude 3)", "RAG", "OpenSearch", "MCP Server"],
-                desc: "End-to-end AI chatbot for a North American digital bank. Auto-detects Spanish/English, orchestrates core banking operations via a custom MCP server. Deflects 45% of tier-1 customer queries without human intervention.",
+                desc: "A North American digital bank needed to deflect tier-1 support volume without degrading service. Built end-to-end: Amazon Lex front-end, Bedrock (Claude 3) reasoning layer, RAG over OpenSearch, and a custom MCP server orchestrating live core banking operations. Auto-detects Spanish and English. Deflects 45% of tier-1 customer queries without human intervention.",
               },
               {
                 title: "LLM-Powered KYC Pipeline",
                 tags: ["AWS Bedrock", "RAG", "Lambda", "DynamoDB"],
-                desc: "RAG-based document processing for compliance automation. Replaced manual KYC document review with LLM-powered extraction — cutting review time 65% in a regulated banking environment.",
+                desc: "KYC compliance review in regulated banking is document-heavy and slow by design. Replaced manual document review with a RAG-based extraction pipeline on AWS Bedrock — Lambda-triggered, DynamoDB-backed, fully auditable. Cut review time by 65% without touching compliance posture.",
               },
               {
                 title: "Loan Processing Automation",
                 tags: ["n8n", "RPA", "AWS"],
-                desc: "Orchestrated n8n and RPA workflows automating loan processing and compliance steps. Reduced cycle time 40–60% and established the enterprise AI orchestration playbook.",
+                desc: "Loan processing cycles were measured in days. Designed and shipped an orchestration layer using n8n and RPA to automate processing and compliance steps end-to-end on AWS. Reduced cycle time 40–60% and produced the enterprise playbook for AI-driven workflow automation.",
               },
             ].map((work) => (
               <div key={work.title} className="border-2 border-black p-5">
@@ -132,12 +138,14 @@ export default function Home() {
           </div>
           <div className="space-y-6">
             {[
-              { role: "Enterprise Architect (Associate Director)", company: "Cognizant Technology Solutions", location: "Belle Mead, NJ",  period: "Dec 2021 – Present" },
-              { role: "Chief Technology Officer",                  company: "RICE Smart",                    location: "Kolkata, India",  period: "May – Dec 2021" },
-              { role: "Head of Technology",                        company: "ABP eVentures",                 location: "Kolkata, India",  period: "2018 – 2021" },
-              { role: "Application Architect",                     company: "IBM",                           location: "Kolkata, India",  period: "2015 – 2018" },
+              { role: "Enterprise Architect (Associate Director)", company: "Cognizant Technology Solutions", location: "Belle Mead, NJ",   period: "Dec 2021 – Present" },
+              { role: "Chief Technology Officer",                  company: "RICE Smart",                    location: "Kolkata, India",   period: "May – Dec 2021" },
+              { role: "Head of Technology",                        company: "ABP eVentures",                 location: "Kolkata, India",   period: "2018 – 2021" },
+              { role: "Application Architect",                     company: "IBM",                           location: "Kolkata, India",   period: "2015 – 2018" },
               { role: "Principal Software Engineer",               company: "CA Technologies",               location: "Hyderabad, India", period: "2014 – 2015" },
-              { role: "Technical Manager → Senior Consultant → Team Lead", company: "HCL · Deloitte · Cognizant", location: "", period: "2004 – 2014" },
+              { role: "Technical Manager",                         company: "HCL Technologies",              location: "",                 period: "2012 – 2014" },
+              { role: "Senior Consultant",                         company: "Deloitte",                      location: "",                 period: "2011 – 2012" },
+              { role: "Team Lead",                                 company: "Cognizant Technology Solutions", location: "",                period: "2004 – 2011" },
             ].map((job) => (
               <div key={job.company + job.period} className="pl-4 border-l-4 border-black relative">
                 <span className="absolute -left-[5px] top-0 w-2 h-2 bg-accent rotate-45 block" />
@@ -177,10 +185,10 @@ export default function Home() {
           <span className="absolute -top-2 -left-2 -right-2 -bottom-2 border border-accent pointer-events-none" />
           <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent mb-2">Contact</p>
           <h2 className="font-head font-bold text-2xl uppercase tracking-tight text-black mb-2">
-            Let&apos;s work together
+            The architecture conversation starts here.
           </h2>
           <p className="text-sm text-neutral-500 mb-6">
-            Open to architecture advisory, AI transformation engagements, and senior leadership roles.
+            Available for AI transformation engagements, architecture advisory, and senior leadership roles. If you are building something that needs to run in production — not just in a demo — reach out.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
