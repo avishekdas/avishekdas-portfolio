@@ -4,38 +4,45 @@ export default function Home() {
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-20">
 
         {/* ── HEADER ─────────────────────────────────────────────── */}
-        <section>
-          <h1 className="font-head font-bold text-4xl sm:text-5xl tracking-tight leading-tight text-black mb-3">
-            Avishek Das
-          </h1>
-          <p className="text-lg text-black mb-1">
-            Enterprise Architect · Associate Director ·{" "}
-            <a
-              href="https://www.cognizant.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-b-2 border-accent hover:text-accent transition-colors"
-            >
-              Cognizant
-            </a>
-          </p>
-          <p className="text-sm text-neutral-400 mb-6">Belle Mead, NJ · 21 years in enterprise technology</p>
-          <div className="flex flex-wrap gap-5">
-            {[
-              { label: "LinkedIn", href: "https://linkedin.com/in/avishekdas" },
-              { label: "GitHub",   href: "https://github.com/avishekdas" },
-              { label: "Email",    href: "mailto:avishekdas.cool@gmail.com" },
-            ].map(({ label, href }) => (
+        <section className="flex flex-col sm:flex-row items-start gap-6">
+          <img
+            src="/avishek_das_profile.png"
+            alt="Avishek Das"
+            className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-center border-2 border-accent flex-shrink-0 mt-1"
+          />
+          <div>
+            <h1 className="font-head font-bold text-4xl sm:text-5xl tracking-tight leading-tight text-black mb-3">
+              Avishek Das
+            </h1>
+            <p className="text-lg text-black mb-1">
+              Enterprise Architect · Associate Director ·{" "}
               <a
-                key={label}
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="font-mono text-xs font-medium tracking-widest uppercase text-black border-b-2 border-accent pb-0.5 hover:text-accent transition-colors"
+                href="https://www.cognizant.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b-2 border-accent hover:text-accent transition-colors"
               >
-                {label}
+                Cognizant
               </a>
-            ))}
+            </p>
+            <p className="text-sm text-neutral-400 mb-6">Belle Mead, NJ · 21 years in enterprise technology</p>
+            <div className="flex flex-wrap gap-5">
+              {[
+                { label: "LinkedIn", href: "https://linkedin.com/in/avishekdas" },
+                { label: "GitHub",   href: "https://github.com/avishekdas" },
+                { label: "Email",    href: "mailto:avishekdas.cool@gmail.com" },
+              ].map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="font-mono text-xs font-medium tracking-widest uppercase text-black border-b-2 border-accent pb-0.5 hover:text-accent transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
