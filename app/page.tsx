@@ -5,11 +5,16 @@ export default function Home() {
 
         {/* ── HEADER ─────────────────────────────────────────────── */}
         <section className="flex flex-col sm:flex-row items-start gap-6">
-          <img
-            src="/avishek_das_profile.png"
-            alt="Avishek Das"
-            className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover object-center ring-2 ring-offset-2 ring-accent flex-shrink-0 mt-1"
-          />
+          {/* Red ring → white gap → photo */}
+          <div className="flex-shrink-0 mt-1 rounded-full p-[3px] bg-[#ff0000]">
+            <div className="rounded-full p-[2px] bg-white">
+              <img
+                src="/avishek_das_profile.png"
+                alt="Avishek Das"
+                className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover object-center block"
+              />
+            </div>
+          </div>
           <div>
             <h1 className="font-head font-bold text-4xl sm:text-5xl tracking-tight leading-tight text-black mb-3">
               Avishek Das
