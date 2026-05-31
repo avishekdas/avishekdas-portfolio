@@ -8,15 +8,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        base:    "#0F172A",
-        surface: "#1E293B",
-        border:  "#334155",
-        text:    "#F1F5F9",
-        muted:   "#94A3B8",
-        accent:  "#3B82F6",
+        base:    "#ffffff",
+        surface: "#f5f5f5",
+        border:  "#000000",
+        text:    "#000000",
+        muted:   "#cccccc",
+        accent:  "#ff0000",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Epilogue", "Helvetica Neue", "Arial", "sans-serif"],
+        head: ["Archivo", "Helvetica Neue", "sans-serif"],
+        mono: ["Azeret Mono", "Courier New", "monospace"],
       },
     },
   },

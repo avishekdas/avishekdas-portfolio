@@ -1,58 +1,50 @@
 export default function Home() {
   return (
     <main className="min-h-screen bg-base text-text font-sans">
-      <div className="max-w-3xl mx-auto px-6 py-20 space-y-24">
+      <div className="max-w-3xl mx-auto px-6 py-16 space-y-20">
 
         {/* ── HEADER ─────────────────────────────────────────────── */}
         <section>
-          <h1 className="text-4xl font-semibold tracking-tight text-text mb-2">
+          <h1 className="font-head font-bold text-4xl sm:text-5xl tracking-tight leading-tight mb-3">
             Avishek Das
           </h1>
-          <p className="text-lg text-muted mb-6">
+          <p className="text-lg mb-1">
             Enterprise Architect · Associate Director ·{" "}
             <a
               href="https://www.cognizant.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text hover:text-accent transition-colors"
+              className="border-b-2 border-accent hover:text-accent transition-colors"
             >
               Cognizant
             </a>
           </p>
-          <div className="flex flex-wrap gap-4 text-sm text-muted">
-            <span>Belle Mead, NJ</span>
-            <span className="text-border">·</span>
-            <a
-              href="https://linkedin.com/in/avishekdas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-accent transition-colors"
-            >
-              LinkedIn
-            </a>
-            <span className="text-border">·</span>
-            <a
-              href="https://github.com/avishekdas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-accent transition-colors"
-            >
-              GitHub
-            </a>
-            <span className="text-border">·</span>
-            <a
-              href="mailto:avishekdas.cool@gmail.com"
-              className="hover:text-accent transition-colors"
-            >
-              avishekdas.cool@gmail.com
-            </a>
+          <p className="text-sm text-muted mb-6">Belle Mead, NJ · 21 years in enterprise technology</p>
+          <div className="flex flex-wrap gap-5">
+            {[
+              { label: "LinkedIn", href: "https://linkedin.com/in/avishekdas" },
+              { label: "GitHub",   href: "https://github.com/avishekdas" },
+              { label: "Email",    href: "mailto:avishekdas.cool@gmail.com" },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="font-mono text-xs font-medium tracking-widest uppercase border-b-2 border-accent pb-0.5 hover:text-accent transition-colors"
+              >
+                {label}
+              </a>
+            ))}
           </div>
         </section>
 
         {/* ── ABOUT ──────────────────────────────────────────────── */}
         <section>
-          <p className="section-label">About</p>
-          <p className="text-lg text-muted leading-relaxed">
+          <div className="flex items-baseline gap-2 border-b-2 border-text pb-2 mb-6">
+            <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent">About</p>
+          </div>
+          <p className="text-base leading-relaxed">
             I build the architecture that moves AI from proof-of-concept to production.
             21 years, 90-person teams, regulated banking. Currently at Cognizant driving
             AI-native operations for a North American digital bank on AWS — shipping RAG
@@ -62,28 +54,32 @@ export default function Home() {
 
         {/* ── WHAT I DO ──────────────────────────────────────────── */}
         <section>
-          <p className="section-label">What I Do</p>
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="flex items-baseline gap-2 border-b-2 border-text pb-2 mb-6">
+            <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent">What I Do</p>
+          </div>
+          <div className="grid sm:grid-cols-3 border-2 border-text">
             {[
               {
                 title: "AI Transformation",
-                desc: "Moving organisations from AI experimentation to AI-native operations. RAG pipelines, LLM agents, MCP servers, and RPA automation — in production, not in pilots.",
+                desc: "RAG pipelines, LLM agents, MCP servers, and RPA automation — in production, not in pilots.",
               },
               {
                 title: "Architecture Leadership",
-                desc: "Enterprise and solution architecture for cloud-native, serverless systems. AWS at scale. Microservices, event-driven design, DDD, and NFR definition in regulated environments.",
+                desc: "Cloud-native, serverless systems on AWS. Microservices, event-driven design, and DDD in regulated environments.",
               },
               {
                 title: "Engineering at Scale",
-                desc: "Leading cross-functional teams of 90+ engineers across architecture, delivery, and cloud engineering. Hiring, mentoring, and building the culture that ships.",
+                desc: "Cross-functional teams of 90+. Hiring, mentoring, and building the culture that ships.",
               },
-            ].map((card) => (
+            ].map((card, i) => (
               <div
                 key={card.title}
-                className="bg-surface rounded-lg p-5 border border-border"
+                className={`p-5 ${i < 2 ? "border-b-2 sm:border-b-0 sm:border-r-2 border-text" : ""}`}
               >
-                <h3 className="text-sm font-semibold text-text mb-2">{card.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{card.desc}</p>
+                <h3 className="font-head font-bold text-xs uppercase tracking-widest mb-2">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#555" }}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -91,38 +87,42 @@ export default function Home() {
 
         {/* ── SELECTED WORK ──────────────────────────────────────── */}
         <section>
-          <p className="section-label">Selected Work</p>
-          <div className="space-y-8">
+          <div className="flex items-baseline gap-2 border-b-2 border-text pb-2 mb-6">
+            <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent">Selected Work</p>
+          </div>
+          <div className="space-y-4">
             {[
               {
                 title: "Conversational Banking Agent",
                 tags: ["Amazon Lex", "Bedrock (Claude 3)", "RAG", "OpenSearch", "MCP Server"],
-                desc: "End-to-end AI chatbot for a North American digital bank. Auto-detects Spanish/English, orchestrates core banking operations via a custom MCP server built on the bank's OpenAPI spec. Deflects 45% of tier-1 customer queries without human intervention.",
+                desc: "End-to-end AI chatbot for a North American digital bank. Auto-detects Spanish/English, orchestrates core banking operations via a custom MCP server. Deflects 45% of tier-1 customer queries without human intervention.",
               },
               {
                 title: "LLM-Powered KYC Pipeline",
                 tags: ["AWS Bedrock", "RAG", "Lambda", "DynamoDB"],
-                desc: "RAG-based document processing pipeline for compliance automation. Replaced manual KYC document review with an LLM-powered extraction and validation workflow — cutting review time by 65% in a regulated banking environment.",
+                desc: "RAG-based document processing for compliance automation. Replaced manual KYC document review with LLM-powered extraction — cutting review time 65% in a regulated banking environment.",
               },
               {
                 title: "Loan Processing Automation",
                 tags: ["n8n", "RPA", "AWS"],
-                desc: "Orchestrated n8n and RPA workflows automating loan processing and compliance steps across a multi-system banking stack. Reduced cycle time 40–60% and established the enterprise AI orchestration playbook used across the programme.",
+                desc: "Orchestrated n8n and RPA workflows automating loan processing and compliance steps. Reduced cycle time 40–60% and established the enterprise AI orchestration playbook.",
               },
             ].map((work) => (
-              <div key={work.title} className="border-l-2 border-border pl-6">
-                <h3 className="text-base font-semibold text-text mb-1">{work.title}</h3>
+              <div key={work.title} className="border-2 border-text p-5">
+                <h3 className="font-head font-bold text-sm uppercase tracking-wide mb-2">
+                  {work.title}
+                </h3>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {work.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-accent bg-accent/10 rounded px-2 py-0.5"
+                      className="font-mono text-xs border border-muted px-2 py-0.5"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <p className="text-sm text-muted leading-relaxed">{work.desc}</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#555" }}>{work.desc}</p>
               </div>
             ))}
           </div>
@@ -130,52 +130,25 @@ export default function Home() {
 
         {/* ── CAREER ─────────────────────────────────────────────── */}
         <section>
-          <p className="section-label">Career</p>
-          <div className="space-y-5">
+          <div className="flex items-baseline gap-2 border-b-2 border-text pb-2 mb-6">
+            <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent">Career</p>
+          </div>
+          <div className="space-y-6">
             {[
-              {
-                role: "Enterprise Architect (Associate Director)",
-                company: "Cognizant Technology Solutions",
-                period: "Dec 2021 – Present",
-                note: "Belle Mead, NJ",
-              },
-              {
-                role: "Chief Technology Officer",
-                company: "RICE Smart",
-                period: "May 2021 – Dec 2021",
-                note: "Kolkata, India",
-              },
-              {
-                role: "Head of Technology",
-                company: "ABP eVentures",
-                period: "Jul 2018 – May 2021",
-                note: "Kolkata, India",
-              },
-              {
-                role: "Application Architect",
-                company: "IBM",
-                period: "Jul 2015 – Jul 2018",
-                note: "Kolkata, India",
-              },
-              {
-                role: "Principal Software Engineer",
-                company: "CA Technologies",
-                period: "May 2014 – Jul 2015",
-                note: "Hyderabad, India",
-              },
-              {
-                role: "Technical Manager → Senior Consultant → Team Lead",
-                company: "HCL · Deloitte · Cognizant",
-                period: "2004 – 2014",
-                note: "",
-              },
+              { role: "Enterprise Architect (Associate Director)", company: "Cognizant Technology Solutions", location: "Belle Mead, NJ", period: "Dec 2021 – Present" },
+              { role: "Chief Technology Officer",                  company: "RICE Smart",                    location: "Kolkata, India",  period: "May – Dec 2021" },
+              { role: "Head of Technology",                        company: "ABP eVentures",                 location: "Kolkata, India",  period: "2018 – 2021" },
+              { role: "Application Architect",                     company: "IBM",                           location: "Kolkata, India",  period: "2015 – 2018" },
+              { role: "Principal Software Engineer",               company: "CA Technologies",               location: "Hyderabad, India", period: "2014 – 2015" },
+              { role: "Technical Manager → Senior Consultant → Team Lead", company: "HCL · Deloitte · Cognizant", location: "", period: "2004 – 2014" },
             ].map((job) => (
-              <div key={job.company + job.period} className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm font-medium text-text">{job.role}</p>
-                  <p className="text-sm text-muted">{job.company}{job.note ? ` · ${job.note}` : ""}</p>
-                </div>
-                <p className="text-sm text-muted whitespace-nowrap">{job.period}</p>
+              <div key={job.company + job.period} className="pl-4 border-l-4 border-text relative">
+                <span className="absolute -left-[5px] top-0 w-2 h-2 bg-accent rotate-45 block" />
+                <p className="font-head font-bold text-xs uppercase tracking-widest">{job.role}</p>
+                <p className="text-sm" style={{ color: "#555" }}>
+                  {job.company}{job.location ? ` · ${job.location}` : ""}
+                </p>
+                <p className="font-mono text-xs text-muted mt-0.5">{job.period}</p>
               </div>
             ))}
           </div>
@@ -183,7 +156,9 @@ export default function Home() {
 
         {/* ── CREDENTIALS ────────────────────────────────────────── */}
         <section>
-          <p className="section-label">Credentials</p>
+          <div className="flex items-baseline gap-2 border-b-2 border-text pb-2 mb-6">
+            <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent">Credentials</p>
+          </div>
           <div className="flex flex-wrap gap-2">
             {[
               "AWS Certified Solutions Architect – Associate",
@@ -195,7 +170,7 @@ export default function Home() {
             ].map((cert) => (
               <span
                 key={cert}
-                className="text-sm text-muted bg-surface border border-border rounded px-3 py-1.5"
+                className="font-mono text-xs bg-surface border border-muted px-3 py-1.5"
               >
                 {cert}
               </span>
@@ -204,15 +179,19 @@ export default function Home() {
         </section>
 
         {/* ── CONTACT ────────────────────────────────────────────── */}
-        <section>
-          <p className="section-label">Contact</p>
-          <p className="text-muted text-sm mb-6">
+        <section className="bg-surface border-2 border-text p-8 relative">
+          <span className="absolute -top-2 -left-2 -right-2 -bottom-2 border border-accent pointer-events-none" />
+          <p className="font-mono text-xs font-medium tracking-widest uppercase text-accent mb-2">Contact</p>
+          <h2 className="font-head font-bold text-2xl uppercase tracking-tight mb-2">
+            Let&apos;s work together
+          </h2>
+          <p className="text-sm mb-6" style={{ color: "#555" }}>
             Open to architecture advisory, AI transformation engagements, and senior leadership roles.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
               href="mailto:avishekdas.cool@gmail.com"
-              className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-accent/90 transition-colors"
+              className="font-head font-semibold text-xs uppercase tracking-widest px-6 py-3 bg-text text-white border-2 border-text hover:bg-accent hover:border-accent transition-colors"
             >
               Send an email
             </a>
@@ -220,7 +199,7 @@ export default function Home() {
               href="https://linkedin.com/in/avishekdas"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-surface border border-border text-text text-sm font-medium px-5 py-2.5 rounded-lg hover:border-accent transition-colors"
+              className="font-head font-semibold text-xs uppercase tracking-widest px-6 py-3 bg-base text-text border-2 border-text hover:bg-text hover:text-white transition-colors"
             >
               LinkedIn
             </a>
@@ -228,8 +207,8 @@ export default function Home() {
         </section>
 
         {/* ── FOOTER ─────────────────────────────────────────────── */}
-        <footer className="pt-8 border-t border-border">
-          <p className="text-xs text-muted">
+        <footer className="border-t-2 border-muted pt-4">
+          <p className="font-mono text-xs text-muted">
             © {new Date().getFullYear()} Avishek Das
           </p>
         </footer>
