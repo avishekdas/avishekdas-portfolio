@@ -33,7 +33,7 @@ jobs:
         run: aws s3 sync out/ s3://avishekdas.dev --delete
 
       - name: Invalidate CloudFront cache
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        continue-on-error: true
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
