@@ -8,7 +8,7 @@ export default function Home() {
           <img
             src="/avishek_das_profile.png"
             alt="Avishek Das"
-            className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-center border-2 border-accent flex-shrink-0 mt-1"
+            className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover object-center ring-2 ring-offset-2 ring-accent flex-shrink-0 mt-1"
           />
           <div>
             <h1 className="font-head font-bold text-4xl sm:text-5xl tracking-tight leading-tight text-black mb-3">
